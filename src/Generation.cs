@@ -10,17 +10,6 @@
             Cells = cells;
         }
 
-        private static bool[] BuildInitialGeneration(int size)
-        {
-            var generation = new bool[size];
-            generation[0] = true;
-            for (var i = 1; i < generation.Length; i++)
-            {
-                generation[i] = false;
-            }
-            return generation;
-        }
-
         public static Generation Create(int size)
         {
             var cells = BuildInitialGeneration(size);
@@ -30,6 +19,17 @@
         public Generation Next(Rule rule)
         {
             return new Generation(new bool[Size]);
+        }
+
+        private static bool[] BuildInitialGeneration(int size)
+        {
+            var generation = new bool[size];
+            generation[0] = true;
+            for (var i = 1; i < generation.Length; i++)
+            {
+                generation[i] = false;
+            }
+            return generation;
         }
     }
 }
